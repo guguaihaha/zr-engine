@@ -1,0 +1,373 @@
+@import "base";
+/*Zr gird*/
+*,*::before,*::after{
+  @include box-sizing-selector;
+}
+//栅格初始值
+$g-start:1;
+$g-end:24;
+//媒体轮询初始值
+$screen-xs-max:768px;
+$screen-sm-min:768px;
+$screen-md-min:992px;
+$screen-lg-max:1200px;
+@mixin zr-col-demo{
+  @include fl(left);
+  @include dp(block);
+  @include ps(relative);
+}
+.zr-col-demo{
+  @include zr-col-demo;
+}
+.zr-row,.zr-row-space{
+  @include dp(block);
+  @include h(auto);
+  @include m(0);
+  @include ps(relative);
+}
+.zr-row-space{
+  @include m(0 -5px);
+}
+.zr-col-space{
+  @include p(0 5px);
+}
+.zr-row::after,.zr-row::before,.zr-row-space::after,.zr-row-space::before{
+  content:" ";
+  @include dp(table);
+}
+
+.zr-row::after,.zr-row-space::after{
+  @include cl(both);
+  @include vb(hidden);
+  @include font(0);
+  @include h(0);
+}
+@for $i from $g-start through $g-end {
+  //24栅格算法
+  .zr-col-#{$i} {
+    width: (100%/$g-end) * $i;
+    @extend .zr-col-demo;
+  }
+  //空隙栅格算法
+  .zr-row-space > .zr-col-#{$i}{
+    @extend .zr-col-space;
+  }
+  //外边距算法
+  .zr-col-offset-#{$i}{
+    @include ml(100%*$i/24);
+  }
+  //flex排序算法
+  @if $i < 13{
+    .zr-col-flex-order-#{$i}{
+      order:$i;
+    }
+  }
+}
+/*!css flex layout*/
+.zr-row-flex,.zr-row-flex::before,.zr-row-flex::after{
+  @include dp(-webkit-box);
+  @include dp(-webkit-flex);
+  @include dp(-ms-flexbox);
+  @include dp(flex);
+  flex-flow:row wrap;
+}
+.zr-row-flex-start{
+  justify-content:flex-start;
+}
+.zr-row-flex-end{
+  justify-content:flex-end;
+}
+.zr-row-flex-center{
+  justify-content:center;
+}
+.zr-row-flex-between{
+  justify-content:space-between;
+}
+.zr-row-flex-around{
+  justify-content:space-around;
+}
+.zr-row-flex-top{
+  align-items: flex-start;
+}
+.zr-row-flex-middle{
+  align-items:center;
+}
+.zr-row-flex-bottom{
+  align-items:flex-end;
+}
+.zr-row-flex-stretch{
+  align-items:stretch;
+}
+.zr-col-flex-top{
+  align-self:flex-start;
+}
+.zr-col-flex-middle{
+  align-self:center;
+}
+.zr-col-flex-bottom{
+  align-self:flex-end;
+}
+.zr-col-flex-stretch{
+  align-self:stretch;
+}
+
+//.box-sizing-selector{
+//  -webkit-box-sizing: content-box;
+//  -moz-box-sizing: content-box;
+//  box-sizing: content-box;
+//}
+/*!button styles*/
+button, input, select, textarea{
+  @include font(inherit);
+  @include m(0);
+}
+
+.zr-btn{
+  @extend .noSelect;
+  @include dp(inline-block);
+  @include bg(#ffffff);
+  @include b(1px solid #d9d9d9);
+  @include border-radius(5px);
+  @include c(#666666);
+  @include cs(pointer);
+  @include font(12px);
+  @include fw(normal);
+  @include lh(1.5);
+  @include p(4px 15px);
+  @include tl(center);
+  @include ws(nowrap);
+  @include ps(relative);
+}
+a.zr-btn-sm.zr-btn{
+  @include lh(1.47);
+}
+a.zr-btn{
+  @include lh(1.7);
+}
+.zr-btn::before{
+  @include ct("");
+  @include bg(#fff);
+  @include border-radius(inherit);
+  @include ps(absolute);
+  left:-1px;
+  top:-1px;
+  right:-1px;
+  bottom:-1px;
+  @include opacity(0.35);
+  pointer-events: none;
+  @include transitionDelay(opacity,0.2s,ease,0s);
+  z-index: 1;
+  @include dp(none);
+}
+.zr-btn.zr-btn-loading::before{
+  @include dp(block);
+}
+.zr-btn.zr-btn-loading{
+  @include pl(29px);
+  pointer-events: none;
+  @include ps(relative);
+}
+.zr-btn.zr-btn-loading [class^="zricon-"]{
+  @include ml(-20px);
+  @include vl(middle);
+}
+.zr-btn,.zr-btn:active,.zr-btn:focus{
+  outline:0 none;
+}
+.zr-btn-default{
+  @include bg-cl(#ffffff);
+  @include bc(#d9d9d9);
+  @include c(#666);
+}
+.zr-btn:hover,.zr-btn-default:hover{
+  @include b(1px solid #dadada);
+  @include bg(#e6e6e6);
+  @include c(#333);
+}
+.zr-btn-primary{
+  @include bg-cl(#337ab7);
+  @include bc(#2e6da4);
+  @include c(#fff);
+}
+.zr-btn-primary:hover{
+  @include bg-cl(#286090);
+  @include bc(#204d74);
+  @include c(#fff);
+}
+.zr-btn-success{
+  @include bg-cl(#5cb85c);
+  @include bc(#4cae4c);
+  @include c(#fff);
+}
+.zr-btn-success:hover{
+  @include bg-cl(#449d44);
+  @include bc(#398439);
+  @include c(#fff);
+}
+.zr-btn-info{
+  @include bg-cl(#5bc0de);
+  @include bc(#46b8da);
+  @include c(#fff);
+}
+.zr-btn-info:hover{
+  @include bg-cl(#31b0d5);
+  @include bc(#2690bc);
+  @include c(#fff);
+}
+.zr-btn-warning{
+  @include bg-cl(#f0ad4e);
+  @include bc(#eea236);
+  @include c(#fff);
+}
+.zr-btn-warning:hover{
+  @include bg-cl(#ec971f);
+  @include bc(#d58512);
+  @include c(#fff);
+}
+.zr-btn-danger{
+  @include bg-cl(#d9534f);
+  @include bc(#d43f3a);
+  @include c(#fff);
+}
+.zr-btn-danger:hover{
+  @include bg-cl(#a9302c);
+  @include bc(#ac2925);
+  @include c(#fff);
+}
+.zr-btn-lg{
+  @include border-radius(6px);
+  @include font(14px);
+  @include p(4px 15px 5px);
+}
+.zr-btn-sm{
+  @include border-radius(4px);
+  @include font(12px);
+  @include p(1px 7px);
+}
+.zr-btn-circle{
+  @include border-radius(50%);
+  @include font(12px);
+  @include w(26px);
+  @include h(26px);
+  @include p(0);
+}
+.zr-btn-circle.zr-btn-lg{
+  @include border-radius(50%);
+  @include font(14px);
+  @include w(28px);
+  @include h(28px);
+  @include p(0);
+}
+.zr-btn-circle.zr-btn-sm{
+  @include border-radius(50%);
+  @include font(12px);
+  @include w(22px);
+  @include h(22px);
+  @include p(0);
+}
+.zr-btn [class^="zricon-"]::before, [class*=" zricon-"]::before{
+  @include vl(baseline);
+}
+.zr-btn [class^="zricon-"] + span,.zr-btn [class*=" zricon-"] + span{
+  @include ml(0.2rem);
+}
+.zr-btn.disabled,.zr-btn.disabled:active,.zr-btn.disabled:focus,.zr-btn.disabled:hover,.zr-btn.active[disabled],.zr-btn[disable]:active,.zr-btn[disable]:focus,.zr-btn[disable]:hover{
+ @include bg-cl(#f7f7f7);
+ @include bc(#d9d9d9);
+ @include c(#ccc);
+}
+.zr-btn.disabled,.zr-btn[disabled]{
+ @include cs(not-allowed);
+}
+.zr-btn-group{
+  @include dp(inline-block);
+  @include ps(relative);
+  @include vl(middle);
+}
+.zr-btn-group > .zr-btn:not(:first-child):not(:last-child){
+  @include border-radius(0);
+  @include pl(8px);
+  @include pr(8px);
+}
+.zr-btn-group > .zr-btn:first-child{
+  border-bottom-right-radius:0;
+  border-top-right-radius: 0;
+}
+.zr-btn-group > .zr-btn:last-child{
+  border-bottom-left-radius:0;
+  border-top-left-radius: 0;
+}
+.zr-btn-group > .zr-btn{
+  @include fl(left);
+  @include ps(relative);
+  @include mr(-1px);
+}
+.zr-btn-group-lg > .zr-btn{
+  @include border-radius(6px);
+  @include font(14px);
+  @include p(4px 15px 5px 15px);
+}
+.zr-btn-group-sm > .zr-btn{
+  @include border-radius(4px);
+  @include font(12px);
+  @include p(1px 7px);
+}
+.caret{
+  @include dp(inline-block);
+  @include vl(middle);
+  @include w(0);
+  @include h(0);
+  border-left:4px solid transparent;
+  border-right:4px solid transparent;
+  border-top:4px dashed;
+  @include ml(2px);
+}
+/*!screen media for auto width*/
+@media (max-width: $screen-xs-max) {
+//默认手机
+  %zr-col-xs-demo{
+    @include zr-col-demo;
+  }
+  @for $i from $g-start through $g-end {
+    .zr-col-xs-#{$i} {
+      width: (100%/$g-end) * $i;
+      @extend %zr-col-xs-demo;
+    }
+  }
+}
+@media (min-width: $screen-xs-max){
+//平板
+  %zr-col-sm-demo{
+    @include zr-col-demo;
+  }
+  @for $i from $g-start through $g-end {
+    .zr-col-sm-#{$i} {
+      width: (100%/$g-end) * $i;
+      @extend %zr-col-sm-demo;
+    }
+  }
+}
+@media (min-width: $screen-md-min){
+  //桌面显示器
+  %zr-col-md-demo{
+    @include zr-col-demo;
+  }
+  @for $i from $g-start through $g-end {
+    .zr-col-md-#{$i} {
+      width: (100%/$g-end) * $i;
+      @extend %zr-col-md-demo;
+    }
+  }
+}
+@media (min-width: $screen-lg-max) {
+//大桌面显示器
+  %zr-col-lg-demo{
+    @include zr-col-demo;
+  }
+  @for $i from $g-start through $g-end {
+    .zr-col-lg-#{$i} {
+      width: (100%/$g-end) * $i;
+      @extend %zr-col-lg-demo;
+    }
+  }
+}

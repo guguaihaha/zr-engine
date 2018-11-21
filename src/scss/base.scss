@@ -1,0 +1,299 @@
+/*!author: zhangjinglin
+*  email: zhangjinglin@jd.com
+*  If you use the base style ,please mark down and save the comment line!
+*/
+//mixin
+@mixin font($fontNumber){
+  font-size:$fontNumber;
+}
+@mixin fw($fontWeightStyle){
+  font-weight: $fontWeightStyle;
+}
+@mixin w($widthNumber){
+  width:$widthNumber;
+}
+@mixin h($heightNumber){
+  height:$heightNumber;
+}
+@mixin lh($lineHeightNumber){
+  line-height: $lineHeightNumber;
+}
+@mixin m($marginNumber){
+  margin:$marginNumber;
+}
+@mixin p($paddingNumber){
+  padding:$paddingNumber;
+}
+@mixin pt($paddingTopNumber){
+  padding-top: $paddingTopNumber;
+}
+@mixin pr($paddingRightNumber){
+  padding-right: $paddingRightNumber;
+}
+@mixin pb($paddingBottomNumber){
+  padding-bottom: $paddingBottomNumber;
+}
+@mixin pl($paddingLeftNumber){
+  padding-left: $paddingLeftNumber;
+}
+@mixin b($borderStyle){
+  border:$borderStyle;
+}
+@mixin bc($borderColor){
+  border-color: $borderColor;
+}
+@mixin c($color){
+  color:$color;
+}
+@mixin ct($content){
+  content:$content;
+}
+@mixin cs($cursorStatus){
+  cursor: $cursorStatus;
+}
+@mixin opacity($opacity){
+  opacity: $opacity;
+  filter:Alpha(opacity=$opacity*100);
+}
+@mixin mt($marginTopNumber){
+  margin-top:$marginTopNumber;
+}
+@mixin mr($marginRightNumber){
+  margin-right:$marginRightNumber;
+}
+@mixin mb($marginBottomNumber){
+  margin-bottom:$marginBottomNumber;
+}
+@mixin ml($marginLeftNumber){
+  margin-left:$marginLeftNumber;
+}
+@mixin fl($floatStatus){
+  float:$floatStatus;
+}
+@mixin tl($textAlignStatus){
+  text-align: $textAlignStatus;
+}
+@mixin cl($status){
+  clear:$status;
+}
+@mixin ps($positionStatus){
+  position:$positionStatus;
+}
+@mixin dp($displayStatus){
+  display: $displayStatus;
+}
+@mixin vb($visibilityStatus){
+  visibility: $visibilityStatus;
+}
+@mixin vl($verticalAlignStatus){
+  vertical-align: $verticalAlignStatus;
+}
+@mixin ws($whiteSpaceStatus){
+  white-space: $whiteSpaceStatus;
+}
+@mixin bg-img($url){
+  background-image:$url;
+}
+@mixin bg-size($size){
+  background-size:$size;
+}
+@mixin bg-ps($position){
+  background-position:$position;
+}
+@mixin bg-rp($repeat){
+  background-repeat:$repeat;
+}
+@mixin bg-cl($bgColor){
+  background-color: $bgColor;
+}
+@mixin bg($background){
+  background:$background;
+}
+@mixin list-style($status){
+   list-style: $status;
+}
+@mixin text-overflow(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin overflow($status){
+  overflow: $status;
+}
+@mixin box-shadow($h-shadow,$v-shadow,$blur,$spread,$color){
+  box-shadow:$h-shadow $v-shadow $blur $spread $color;
+}
+@mixin border-radius($num){
+  -ms-border-radius:$num; 	/* IE 9 */
+  -moz-border-radius:$num; 	/* Firefox */
+  -webkit-border-radius:$num; /* Safari 和 Chrome */
+  -o-border-radius:$num; 	/* Opera */
+  border-radius:$num;
+}
+@mixin transform($action){
+  -ms-transform:$action; 	/* IE 9 */
+  -moz-transform:$action; 	/* Firefox */
+  -webkit-transform:$action; /* Safari 和 Chrome */
+  -o-transform:$action; 	/* Opera */
+  transform:$action;
+}
+@mixin transition($property,$duration,$timing-function){
+  -ms-transform:$property $duration $timing-function ;/* IE 9 */
+  -moz-transition: $property $duration $timing-function; /* Firefox 4 */
+  -webkit-transition: $property $duration $timing-function; /* Safari 和 Chrome */
+  -o-transition: $property $duration $timing-function; /* Opera */
+  transition: $property $duration $timing-function;
+
+}
+@mixin transitionDelay($property,$duration,$timing-function,$time){
+  -ms-transform:$property $duration $timing-function $time;/* IE 9 */
+  -moz-transition: $property $duration $timing-function $time; /* Firefox 4 */
+  -webkit-transition: $property $duration $timing-function $time; /* Safari 和 Chrome */
+  -o-transition: $property $duration $timing-function $time; /* Opera */
+  transition: $property $duration $timing-function $time;
+
+}
+@mixin animation($name,$duration,$timing-function,$time){
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-delay: $time;
+  animation-iteration-count: infinite;
+  //animation-direction: alternate;
+  animation-play-state: running;
+  /* Firefox: */
+  -moz-animation-name: $name;
+  -moz-animation-duration: $duration;
+  -moz-animation-timing-function: $timing-function;
+  -moz-animation-delay: $time;
+  -moz-animation-iteration-count: infinite;
+  //-moz-animation-direction: alternate;
+  -moz-animation-play-state: running;
+  /* Safari 和 Chrome: */
+  -webkit-animation-name: $name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-timing-function: $timing-function;
+  -webkit-animation-delay: $time;
+  -webkit-animation-iteration-count: infinite;
+  //-webkit-animation-direction: alternate;
+  -webkit-animation-play-state: running;
+  /* Opera: */
+  -o-animation-name: $name;
+  -o-animation-duration: $duration;
+  -o-animation-timing-function: $timing-function;
+  -o-animation-delay: $time;
+  -o-animation-iteration-count: infinite;
+  //-o-animation-direction: alternate;
+  -o-animation-play-state: running;
+}
+@mixin background-gradient($top,$bottom){
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -webkit-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -o-linear-gradient(top, $top 0%,$bottom 100%);
+  background: -ms-linear-gradient(top, $top 0%,$bottom 100%);
+  background: linear-gradient(to bottom, $top 0%,$bottom 100%);
+}
+$color-white:#ffffff;
+$color-black:#000000;
+$color-grey:#cccccc;
+
+
+
+
+
+$font-base:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+SimSun, sans-serif !default;
+/*!base reset*/
+* {
+  word-wrap:break-word;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-family:$font-base;
+  outline:none;
+}
+body{
+  background: $color-white;
+}
+body,input {
+  margin:0 auto;
+  padding:0;
+}
+input,textarea,a,div{
+  outline:none;
+}
+textarea{
+  resize: none;
+}
+input,textarea{
+  appearance:button;
+  -moz-appearance:button; /* Firefox */
+  -webkit-appearance:button; /* Safari 和 Chrome */
+}
+#container {
+ @include w(100%);
+}
+h1,h2,h3,h4,h5,h6,dd,dt,ul,li,span,p,dl,a,th,td,blockquote,form,fieldset {
+  @include m(0);
+  @include p(0);
+  @include list-style(none);
+}
+dt,li {
+  @include cl(both);
+}
+dd {
+  @include fl(left);
+  @include dp(inline);
+}
+dt.clear,li.clear,.clear {
+  @include cl(both);
+  @include font(0);
+  @include h(0);
+  @include overflow(hidden);
+}
+dt.clear,li.clear {
+  @include h(0);
+  @include font(0);
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset {
+  @include b(0);
+}
+address,caption,cite,code,dfn,th,var {
+  font-weight: normal;
+  font-style: normal;
+}
+abbr,acronym {
+  @include b(0);
+}
+caption,th {
+  @include tl(left);
+}
+img{
+  @include b(0);
+}
+a{
+  @include c(#404040);
+  text-decoration: none;
+}
+a:hover{
+  @include c(#333333);
+}
+.noSelect{
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+/*var*/
+.box-sizing-selector{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin box-sizing-selector{
+  @extend .box-sizing-selector;
+}

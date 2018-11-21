@@ -1,0 +1,48 @@
+//基础
+@import "base";
+//栅格
+@import "../modules/grid";
+//按钮
+@import "../modules/buttons";
+
+
+
+
+
+
+
+
+
+
+
+/*!screen media for auto width*/
+@media ( max-width: @screen-phone ) {
+  //默认手机
+  @screen-size-name : @xs-name;
+  .mixin(@screen-size-name,@screen-name-grid);
+  .mixin(@screen-size-name,@screen-name-button);
+}
+@media (min-width: @screen-xs-min ){
+  //平板
+  @screen-size-name : @sm-name;
+  .mixin(@screen-size-name,@screen-name-grid);
+  .mixin(@screen-size-name,@screen-name-button);
+}
+@media (min-width: @screen-sm-min ){
+  //桌面显示器
+  @screen-size-name : @md-name;
+  .mixin(@screen-size-name,@screen-name-grid);
+  .mixin(@screen-size-name,@screen-name-button);
+}
+@media (min-width: @screen-lg-min ){
+  //大桌面显示器
+  @screen-size-name : @lg-name;
+  .mixin(@screen-size-name,@screen-name-grid);
+  .mixin(@screen-size-name,@screen-name-button);
+}
+@media (min-width: @screen-xxl-min ){
+  //大屏慕数据展示
+  @screen-size-name : @xl-name;
+  .mixin(@screen-size-name,@screen-name-grid);
+  .mixin(@screen-size-name,@screen-name-button);
+}
