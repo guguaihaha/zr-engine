@@ -6,7 +6,7 @@
   "dependencies": {
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-uglify": "^6.0.0"
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
