@@ -52,7 +52,7 @@
             "path":"./dragFloat/"
         },
         "message":{
-            "path":"./zrModules/message"
+            "path":"./zrModules/message/"
         },
         "tab":{
             "path":"./zrModules/tab"
@@ -60,8 +60,9 @@
         "tmpl":{
             "path":"./tmpl/"
         },
-        "cdn_test":{
-            "path":"./cdn_index"
+        "test":{
+            version:"1.0.0",
+            path:"./test/@version/test"
         }
     }
     /**
@@ -204,6 +205,13 @@
                 photo:prefix+"-layout-info-photo"
             }
         },
+        {
+            selectorName:"."+prefix+"-badge",
+            moduleName:"_badge",
+            options:{
+
+            }
+        }
     ]
 
 
@@ -212,12 +220,12 @@
      * @Author: zhangjinglin
      * @Email: zhangjinglin@jd.com
      * @Date: Created in 2018/1/30 下午9:46
-     * @Description:zr的继承方法
+     * @Description:zr的继承方法，忽略已经添加的配置选项，增加新属性
      */
-    Zr.config({
+    Zr._config({
         module:config,
         moduleSelectors:moduleSelectors,
-        language:"CN"
+        language:"zh-CN"
     })
 })()
 
@@ -281,6 +289,9 @@ Zr.add("./zr/index",function(zr,$){
     var _upload={uid:30900000,version:"1.0.0",init:function(domObject){this.options._obj=domObject;this.events.uploadEvent(domObject);},options:{_obj:{}},events:{uploadEvent:function(opt){if(opt.array.length>0){$.each(opt.array,function(index,elem){var str="",a="<a class='zr-btn zr-btn-default'></a>",sDef="Click to upload",sDef2="Select File",label=$("<label class='zr-upload-module'></label>");if($(elem).hasClass(_upload.options._obj.options.avatarClassName)){label.addClass(_upload.options._obj.options.avatarClassName);str+="<i class='zricon-add'></i>";}else if($(elem).hasClass(_upload.options._obj.options.pictureClassName)){label.addClass(_upload.options._obj.options.pictureClassName);str+="<i class='zricon-add'></i>";}else if($(elem).hasClass(_upload.options._obj.options.dragClassName)){label.addClass(_upload.options._obj.options.dragClassName);str+="<i class='zricon-upload-empty'></i><h4>"+$(elem).attr('title')+"</h4><p>"+$(elem).attr('alt')+"</p>";}else if($(elem).hasClass(_upload.options._obj.options.manualClassName)){label=label.append(a).addClass(_upload.options._obj.options.manualClassName);str+="<i class='zricon-doc-empty'></i>";$(elem).attr("title")==undefined?str+=sDef2:str+=$(elem).attr("title");}else if($(elem).hasClass(_upload.options._obj.options.explainClassName)){var p=$('<p>'+$(elem).attr('alt')+'</p>');label=label.append(a).addClass(_upload.options._obj.options.explainClassName).append(p);str+="<i class='zricon-upload-1'></i>";$(elem).attr("title")==undefined?str+=sDef:str+=$(elem).attr("title");}else{label=label.append(a);str+="<i class='zricon-upload-1'></i>";$(elem).attr("title")==undefined?str+=sDef:str+=$(elem).attr("title");}
         $(elem).addClass(_upload.options._obj.options.hideClassName).wrap(label);$(elem).before(str);})}}},eventFn:{},ajax:{}}
 
+     var _badge = window._badge;
+
+
     var _allModules = {
         _alert:_alert,
         _input:_input,
@@ -292,7 +303,8 @@ Zr.add("./zr/index",function(zr,$){
         // _list:_list,
         _nav:_nav,
         _upload:_upload,
-        _layout:_layout
+        _layout:_layout,
+        _badge:_badge
     }
     var ArrayProto = Array.prototype, ObjProto = Object.prototype;// FuncProto = Function.prototype;
     var
@@ -405,7 +417,7 @@ Zr.add("./zr/index",function(zr,$){
      */
     function _find(selector,type){
         var _s = $(selector),
-            _cacheName = "zralready_1001",
+            _cacheName = "data-zr-cache",
             _r1 = [],
             _r2 = [],
             _r3 = [];
@@ -417,12 +429,13 @@ Zr.add("./zr/index",function(zr,$){
                 if($(this).closest(".c-code-inner").length > 0){
                     return;
                 }
-                if($(this).data(_cacheName)){
+                if($(this).attr(_cacheName) == ""){
                     _r2.push(this);
                 }else{
                     _r1.push(this);
-                    $(this).data(_cacheName,_cacheName);
+                    $(this).attr(_cacheName,"");
                 }
+
                 _r3.push(this);
             })
             if(type == 2){
@@ -455,7 +468,7 @@ Zr.add("./zr/index",function(zr,$){
     // //手动触发一次
     $(function(){
         //页面初始化主动触发一次加载内置元素
-        _init_auto();
+        _init_observer();
     })
     /**
      * @Author: zhangjinglin

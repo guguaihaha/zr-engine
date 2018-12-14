@@ -94,21 +94,27 @@ import $ from '../zr-tools'
          * @return {Array} modules exports
          * */
         getModules:function(runtime,modNames){
+            //初始化清空
+            runtime.alias = {};
+            //
              var module,
-                 // modName,
                  modFactory,
                  modExports,
-                 // modRequires,
+                 modAlias,
                  mods = [runtime],
-                 child_mods = [],
+                //  child_mods = [],
+                 alias = {},
+                 _c,
                  runtimeMods = runtime.global.MODULES;
+
             // var child_module;
             $.each(modNames,function(index,modName){
-                child_mods = [];
+                // child_mods = [];
                 module = runtimeMods[modName];
                 modName = module["name"] || modName;
                 modFactory = module["factory"];
                 modExports = module["exports"];
+                modAlias = module["alias"] || "";
                 // modRequires = module["requires"] || [];
                 //迭代依赖关系并建立回显内容
                 // $.each(modRequires,function(ind,mod){
@@ -117,11 +123,20 @@ import $ from '../zr-tools'
                 //     child_mods.push(child_module.exports);
                 // })
                 //
+                
+                
                 //
                 if(!modName || $.extname(modName) !== ".css"){
                     try {
-                        mods.push(modExports ? modExports : modFactory());
+                        _c = modExports ? modExports : modFactory()
+                        mods.push(_c);
+                        //注册alias关系
+                        if(modAlias){
+                            alias[modAlias] = _c;
+                            // Utils.registerAliasExports(runtime,modAlias,modName);
+                        }
                     } catch(err) {
+                        console.log(err);
                         throw "请检查您的"+modName+"模块名称异常！";
                     }
 
@@ -129,9 +144,26 @@ import $ from '../zr-tools'
                     mods.push(undefined);
                 }
             })
+            //是否启用别名系统
+            if(mods.length > 1){
+                $.each(mods,function(i,n){
+                    if(i == 1){
+                        runtime.alias = alias;
+                    }
+                    return false;
+                })
+            }
+              
             return mods;
         },
+        //注册依赖路径
+        registerAliasExports:function(runtime,name,path){
+            var module = runtime.global.baseConfig.module;
+            if(!module[name]){
+                module[name] = {path:path};
+            }
 
+        },
         /**
          *
          * */
@@ -157,7 +189,7 @@ import $ from '../zr-tools'
             }
             //相对路径转化绝对路径
             if(refModName){
-                ret = utils.normalDepModuleName(refModName,ret);
+                ret = Utils.normalDepModuleName(refModName,ret);
             }
             return ret;
         },
@@ -488,12 +520,18 @@ import $ from '../zr-tools'
         checkFromModuleList:function(modNames,Zr){
             var config = Zr.baseConfig,
                 mod,mdname;
+            //
+            var repeat = {};    
             $.each(modNames,function(i,n){
                 mod = Utils.extModnames([n]);
+                if(repeat[mod]){
+                    return;
+                }
                 mdname = config.module[mod];
                 if(mdname){
-                    modNames[i] = mdname.path;
+                    modNames[i] = mdname.version ? mdname.path.replace("@version",mdname.version) : mdname.path;
                 }
+                repeat[mod] = 1;
             })
             return modNames;
         },

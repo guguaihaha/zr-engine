@@ -2,7 +2,7 @@
  * Created by zhangjinglin on 16/9/2.
  */
     //
-    var Zr = {
+    var _Zr = {
         //全局函数
         global:{
             //加载模块挂载对象数组,一经使用立刻加载到MODULEArray中
@@ -56,5 +56,9 @@
             base:""
         }
     };
-    window.Zr = Zr;
-    export default Zr;
+    if(!window.__ZrGlobalStatus){
+        window.Zr = _Zr;
+    }
+    
+    
+    export default _Zr;

@@ -118,7 +118,8 @@ import moduleLoader from './moduleLoader'
             modNames = utils.extModnames(modNames);
             //将结果集返回到回到函数体内, 此函数只有在依赖载入完毕,模块功能生效时调用
             finalCallback = function(){
-                callback.apply(Zr,utils.getModules(Zr,modNames));
+                var rets = utils.getModules(Zr,modNames);
+                callback.apply(Zr,rets);
             }
             //
             function loadReady(){
@@ -156,7 +157,7 @@ import moduleLoader from './moduleLoader'
                     //检查模块是否已经载入并检测状态
                     modules = utils.checkAttachStatus(modules,Zr);
                     //
-                    loader.use(modules);
+                    loader.use(modules,Zr);
                     // finalCallback();
                 }
             }

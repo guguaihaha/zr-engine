@@ -66,14 +66,14 @@ import config from '../zr-config'
          *
          *
          * */
-        use:function(normalizedModNames){
+        use:function(normalizedModNames,runtime){
             var _self = this,
                 modules;
                         // allModNames,
                         // comboUrls,
                         // timeout ;
                 //从config文件中查找对应的路径文件
-                normalizedModNames = _self.checkFromModuleList(normalizedModNames);
+                normalizedModNames = utils.checkFromModuleList(normalizedModNames,runtime);
                 // console.log(normalizedModNames)
                 //开始第一步筛查已存在的对象,并登记未使用对象到Zr.global.MODULES中
                 modules = _self.calculate(normalizedModNames);
@@ -81,6 +81,7 @@ import config from '../zr-config'
                 if(!$.isEmptyObject(modules)){
                     _self.eachLoadModules(modules);
                 }
+
             //
 
             //
@@ -157,18 +158,18 @@ import config from '../zr-config'
             return ret;
 
         },
-        checkFromModuleList:function(modNames){
-            var config = this.runtime.baseConfig,
-                mod,mdname
-            $.each(modNames,function(i,n){
-                mod = utils.extModnames([n]);
-                mdname = config.module[mod];
-                if(mdname){
-                    modNames[i] = mdname.path;
-                }
-            })
-            return modNames;
-        },
+        // checkFromModuleList:function(modNames){
+        //     var config = this.runtime.baseConfig,
+        //         mod,mdname
+        //     $.each(modNames,function(i,n){
+        //         mod = utils.extModnames([n]);
+        //         mdname = config.module[mod];
+        //         if(mdname){
+        //             modNames[i] = mdname.path;
+        //         }
+        //     })
+        //     return modNames;
+        // },
         checkCDNStatus:function(modName){
             var status = 1;
             if(!modName.match(".cdn")){
