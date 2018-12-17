@@ -8,9 +8,9 @@ Zr的API
 
 - 入参类型：
 
-   param1,param2,... => String类型
+   **param1,param2,...**  （String)
    
-   callback => Function类型
+   **callback**  (Function)
 
 - 用法：
   
