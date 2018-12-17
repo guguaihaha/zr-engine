@@ -30,3 +30,10 @@
        })
     </script>
 ```
+当然以上方式直接使用即可，但是不建议采用页面书写业务逻辑的方式，其他方式[请一起讨论](//github.com/guguaihaha/zr-engine/issues/2)
+
+> 只用样式
+```html
+<!--css样式请放在head标签内部-->
+    <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/v1.0.0/zr/css/cdn_zr.css" />
+```
