@@ -8,7 +8,7 @@ Zr的API
 
 - 入参类型：
 
-   + `{String}  param1,param2,...`  
+   + <span style="color:orange;">`{String}  param1,param2,...`</span>  
    
    + `{Function}  callback`
 
@@ -31,6 +31,9 @@ Zr的API
 - 语法：
 ` Zr.add(param,callback,options)`
 
-- 用法：
+- 入参类型：
+  + `{String}  param`
+  
+  +  `{Function}  callback`
   
 
