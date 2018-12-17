@@ -1,5 +1,6 @@
 如何快速开始引入
 ---
+***此页面建立了[讨论区](//github.com/guguaihaha/zr-engine/issues/3)，欢迎提问和协同解决问题***
 > 原始方式
 
 ```html
@@ -30,7 +31,7 @@
        })
     </script>
 ```
-当然以上方式直接使用即可，但是不建议采用页面书写业务逻辑的方式，其他方式[请一起讨论](//github.com/guguaihaha/zr-engine/issues/2)
+当然以上方式直接使用即可，但是不建议采用页面书写业务逻辑的方式，其他书写方式[请一起讨论](//github.com/guguaihaha/zr-engine/issues/2)
 
 > 只引用样式
 ```html
