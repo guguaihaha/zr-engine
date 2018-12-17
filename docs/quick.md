@@ -2,8 +2,7 @@
 ---
 > 原始方式
 
-``html
-
+```html
     <!--css样式请放在head标签内部-->
     <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/1.3.3/zr/css/cdn_zr.min.css" />
     <!--以下script请放到</body>前-->
@@ -26,4 +25,4 @@
            })
        })
     </script>
-``
+```
