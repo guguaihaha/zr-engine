@@ -38,3 +38,9 @@
     <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/v1.0.0/zr/css/cdn_zr.css" />
 ```
 样式引用可以自由使用内置组件的基本样式红利，但是内置组件涉及到的动画、业务处理逻辑则丢失，请根据需求自行决定
+
+> 全量产品线引入
+
+这种方式就是采用Zr-pro布局，我们可以使用的具体方案如下
+
+[此处是如何使用Pro系统解决方案](//github.com/guguaihaha/zr-pro-flex)
