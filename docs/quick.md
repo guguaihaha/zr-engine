@@ -4,9 +4,9 @@
 
 ```html
     <!--css样式请放在head标签内部-->
-    <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/1.3.3/zr/css/cdn_zr.min.css" />
+    <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/v1.0.0/zr/css/cdn_zr.css" />
     <!--以下script请放到</body>前-->
-    <script type="text/javascript" language="javascript" src="//storage.360buyimg.com/1.3.3/zr.min.js"></script>
+    <script type="text/javascript" language="javascript" src="//storage.360buyimg.com/v1.0.0/zr.min.js"></script>
     <!--具体初始化全局配置-->
     <script type="text/javascript">
        //配置方法；
@@ -21,7 +21,11 @@
            //使用相应的模块；
            Zr.use("jquery","./js/code",function(zr,$,code){
                //自动注入了jquery组件；
+               $(function({
+                 //todo something
+               }))
                //自动注入了./js/code组件；
+               code.init()
            })
        })
     </script>
