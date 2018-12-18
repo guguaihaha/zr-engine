@@ -139,7 +139,7 @@ Zr的API
               "version":"1.12.3"
             },
             "main":{
-              "path":"./jquery/@version/index.js",
+              "path":"./main/@version/index.js",
               "version":"13.2.1"
             }
         }
