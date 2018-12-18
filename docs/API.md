@@ -101,14 +101,51 @@ Zr的API
  
  - 参数解析：
  
-   + options.baseUrl 
+   + options.baseUrl   （String）
    
      **必填字段**，配置业务js和css等静态资源代码库地址，可以是项目中地址，也可以是线上CDN等地址
    
-   + options.requestTime
+   + options.requestTime   (Bolean)
    
-     **选填**,  
+     **选填**，生成随即时间戳，防止缓存，开发环境建议打开，上线后必须关闭,默认为'false'，关闭
+     
+   + options.version  (String)
+   
+     **选填**，显示当前Zr的版本信息
+     
+   + options.language  (String)
+   
+     **选填**，当前语言环境，设置将会影响所有组件的显示，组件会默认语言会依据此设置，如果组件需要单独配置语言，请根据组件文档另行配置。
+     
+   + options.requestVersion  (String)
+   
+     **选填**，用于更新线上环境所有Zr的异步组件当前版本信息，常用于发版清除缓存，建议每次发布新版本增加次版本号，内容自己定义
+     
+   + options.cdnUrl  (String)
+   
+     **选填**，指向公共资源库地址，文件命名格式："cdn_**.js"即可，默认指向：//storage.360buyimg.com/的京东CDN服务器
+             
+   + options.module  (Object)
+   
+     **选填**，配置Zr.use使用的别名,具体结构如下
+     
+     ```javascript
+      Zr.config({
+        "module":{
+            //模块别名名称
+            "jquery":{
+              //配置的寻址路径
+              "path":"./jquery/@version/index",
+              "version":"1.12.3"
+            },
+            "jquery3":{
+              "path":"./jquery/@version/jquery3.js",
+              "version":"3.2.1"
+            }
+        }
+      })
  
+     ```
  
- - 参考用法：[使用方法]()
+ - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/6)
  
