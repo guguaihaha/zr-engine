@@ -138,17 +138,17 @@ Zr的API
               "path":"./jquery/@version/index",
               "version":"1.12.3"
             },
-            "jquery3":{
-              "path":"./jquery/@version/jquery3.js",
-              "version":"3.2.1"
+            "main":{
+              "path":"./jquery/@version/index.js",
+              "version":"13.2.1"
             }
         }
       })
  
       Zr.ready(function(){
-         Zr.use("jquery","jquery3",function(zr,$,$3){
+         Zr.use("jquery","jquery3",function(zr,$,m){
             //$ 代表jquery1.12.3的版本
-            //$3 代表jquery3.2.1的版本
+            //m 代表main13.2.1的版本
          })
       })
  
