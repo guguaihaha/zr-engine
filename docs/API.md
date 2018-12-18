@@ -49,4 +49,24 @@ Zr的API
   
   + options 是配置项目，目前包含两个对象{alias:"aliasName",requires:["param1","param2",...]}
   
+- 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/5) 
+ 
+ <br/>
+ <br/>
+ <br/>
+ 
+ > Zr.document
+ 
+ - 语法：
+ `Zr.document`
+ 
+ - 参考用法：直接调用即可，防止全局document污染。
+ 
+ > Zr.window
+ 
+ - 语法：
+ `Zr.window`
+ 
+ - 参考用法：直接调用即可，防止全局window污染
+  
 
