@@ -93,7 +93,7 @@ Zr的API
 > Zr.config <span id="config">#</span>
 
  - 语法：
- `Zr.config`
+ `Zr.config(options)`
  
  - 入参类型：
    
@@ -158,3 +158,72 @@ Zr的API
  
  - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/6)
  
+ <br/>
+ <br/>
+ <br/>
+ 
+ 
+ > Zr.extend <span id="extend">#</span>
+ 
+ - 语法：
+ ` Zr.extend(deep,parent,child)`
+ 
+ - 入参类型：
+ 
+   + `{Boolean}  deep`
+   
+   + `{Object}  parent`
+   
+   + `{Object} child`
+   
+ - 返回类型：
+  
+  `{Object} @return`
+  
+  返回一个key相同则覆盖父类，父类没有的对象则合并的新对象。
+   
+ - 参数解析：
+ 
+   + deep
+   
+   **选填** 是否需要深度copy，默认是false
+   
+   + parent 
+   
+   **必填** 被继承的父类对象
+   
+   + child 
+   
+   **必填** 继承的子对象
+   
+ - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/7) 
+ 
+ 
+  > Zr.tools <span id="tools">#</span>
+  
+  - 语法：
+  ` Zr.tools`
+    
+  - 返回类型：
+   
+   `{Object} @return`
+   
+   返回一个包含多种工具类方法的对象，具体包含方法如下
+   
+   `var tools = Zr.tools`
+   
+   + tools.bind(func,object,param1,param2,...)
+   
+     * func
+     
+       ***必填***，被绑定的函数
+     
+     * object
+     
+       ***必填***，绑定指向的对象
+       
+     * param1,param2,...
+     
+       ***选填***，[入参] 绑定后参数一函数（func）执行时候的参数     
+    
+  - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/7) 
