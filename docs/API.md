@@ -1,6 +1,6 @@
 Zr的API
 ---
-> Zr.use <span id="use">#</span>
+> Zr.use <span id="use" name="use">#</span>
 
 - 语法：` Zr.use(param1,param2,...,callback)`
 
@@ -26,7 +26,7 @@ Zr的API
 <br/>
 
 
-> Zr.add <span id="add">#</span>
+> Zr.add <span id="add" name="add">#</span>
 
 - 语法：
 ` Zr.add(param,callback,options)`
@@ -53,7 +53,7 @@ Zr的API
  <br/>
  <br/>
  
- > Zr.document <span id="document">#</span>
+ > Zr.document <span id="document" name="document">#</span>
  
  - 语法：
  `Zr.document`
@@ -64,7 +64,7 @@ Zr的API
     <br/>
     <br/>
  
- > Zr.window <span id="window">#</span>
+ > Zr.window <span id="window" name="window">#</span>
  
  - 语法：
  `Zr.window`
