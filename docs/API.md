@@ -2,9 +2,7 @@ Zr的API
 ---
 > Zr.use <span id="use">#</span>
 
-- 语法：
-
-` Zr.use(param1,param2,...,callback)`
+- 语法：` Zr.use(param1,param2,...,callback)`
 
 - 入参类型：
 
