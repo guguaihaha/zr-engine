@@ -53,22 +53,26 @@ Zr的API
  <br/>
  <br/>
  
- > Zr.document
+ > Zr.document <span id="document">#</span>
  
  - 语法：
  `Zr.document`
  
  - 参考用法：直接调用即可，防止全局document污染。
  
-  <br/>
-  <br/>
-  <br/>
+    <br/>
+    <br/>
+    <br/>
  
- > Zr.window
+ > Zr.window <span id="window">#</span>
  
  - 语法：
  `Zr.window`
  
  - 参考用法：直接调用即可，防止全局window污染
+ 
+   <br/>
+   <br/>
+   <br/>
   
 
