@@ -1,8 +1,9 @@
 Zr的API
 ---
-> Zr.use <span id="use" name="use">#</span>
+> Zr.use <span id="use">#</span>
 
-- 语法：` Zr.use(param1,param2,...,callback)`
+- 语法：
+` Zr.use(param1,param2,...,callback)`
 
 - 入参类型：
 
@@ -26,7 +27,7 @@ Zr的API
 <br/>
 
 
-> Zr.add <span id="add" name="add">#</span>
+> Zr.add <span id="add">#</span>
 
 - 语法：
 ` Zr.add(param,callback,options)`
@@ -53,7 +54,7 @@ Zr的API
  <br/>
  <br/>
  
- > Zr.document <span id="document" name="document">#</span>
+ > Zr.document <span id="document">#</span>
  
  - 语法：
  `Zr.document`
@@ -64,7 +65,7 @@ Zr的API
     <br/>
     <br/>
  
- > Zr.window <span id="window" name="window">#</span>
+ > Zr.window <span id="window">#</span>
  
  - 语法：
  `Zr.window`
@@ -74,5 +75,40 @@ Zr的API
    <br/>
    <br/>
    <br/>
-  
+   
+ > Zr.alias <span id="alias">#</span> 
+ 
+ - 语法：
+ `zr.alias`
+ 
+ - 用法：
+ 此方法直接在Zr.use或者Zr.add方法的回调函数中第一个参数调用。用于快速获取具有别名的组件
+ 
+ - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/4#user-content-alias)
+ 
+<br/>
+<br/>
+<br/>
 
+> Zr.config <span id="config">#</span>
+
+ - 语法：
+ `Zr.config`
+ 
+ - 入参类型：
+   
+   `{Object}  options`
+ 
+ - 参数解析：
+ 
+   + options.baseUrl 
+   
+     **必填字段**，配置业务js和css等静态资源代码库地址，可以是项目中地址，也可以是线上CDN等地址
+   
+   + options.requestTime
+   
+     **选填**,  
+ 
+ 
+ - 参考用法：[使用方法]()
+ 
