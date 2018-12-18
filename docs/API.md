@@ -224,6 +224,10 @@ Zr的API
        
      * param1,param2,...
      
-       ***选填***，[入参] 绑定后参数一函数（func）执行时候的参数     
+       ***选填***，[入参] 绑定后参数一函数（func）执行时候的参数
+       
+   [参考用法](//github.com/guguaihaha/zr-engine/issues/8)    
+       
+   + tools.         
     
-  - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/7) 
+  
