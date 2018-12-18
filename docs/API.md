@@ -62,6 +62,10 @@ Zr的API
  
  - 参考用法：直接调用即可，防止全局document污染。
  
+  <br/>
+  <br/>
+  <br/>
+ 
  > Zr.window
  
  - 语法：
