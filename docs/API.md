@@ -145,7 +145,16 @@ Zr的API
         }
       })
  
+      Zr.ready(function(){
+         Zr.use("jquery","jquery3",function(zr,$,$3){
+            //$ 代表jquery1.12.3的版本
+            //$3 代表jquery3.2.1的版本
+         })
+      })
+ 
      ```
+    以上配置中以`"key":{"path":"","version":""}`中结构为主，其中key是use使用别名的名称，path是对应的实际路径，其中@version就是以下version的版本信息。
+    因为每个组件的版本有可能不同，请根据项目需要自行引入
  
  - 参考用法：[使用方法](//github.com/guguaihaha/zr-engine/issues/6)
  
