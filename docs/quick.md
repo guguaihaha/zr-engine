@@ -7,7 +7,7 @@
     <!--css样式请放在head标签内部-->
     <link type="text/css" rel="stylesheet" href="//storage.360buyimg.com/v1.0.0/zr/css/cdn_zr.css" />
     <!--以下script请放到</body>前-->
-    <script type="text/javascript" language="javascript" src="//storage.360buyimg.com/v1.0.0/zr.min.js"></script>
+    <script type="text/javascript" src="//storage.360buyimg.com/v1.0.0/zr.min.js"></script>
     <!--具体初始化全局配置-->
     <script type="text/javascript">
        //配置方法；
