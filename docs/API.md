@@ -316,9 +316,7 @@ Zr的API
   
    <br/>
    
-   ```html
-   
-   ```
+---
    
    + tools.endWidth(path/url, suffix)
    
@@ -338,9 +336,7 @@ Zr的API
         
      <br/>
      
-     ```html
-     
-     ```
+---
      
    + tools.extname(path/url)
                 
@@ -362,9 +358,7 @@ Zr的API
        
    <br/>
    
-   ```html
-   
-   ```
+---
    
    + tools.isArray(Object)
    
@@ -380,9 +374,7 @@ Zr的API
       
    <br/>
    
-   ```html
-   
-   ```
+---
    
    + tools.isBoolean(Object)
    
@@ -398,6 +390,8 @@ Zr的API
       
    <br/>
    
+---
+   
    + tools.isDate(Object)
    
      * Object
@@ -411,6 +405,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否 
       
    <br/>
+   
+   ---
       
    + tools.isEmptyObject(Object)
    
@@ -425,6 +421,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否   
       
    <br/>
+   
+   ---
       
    + tools.isFunction(Object)
    
@@ -439,6 +437,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否       
       
    <br/>
+   
+   ---
       
    + tools.isNull(Object)
    
@@ -453,6 +453,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否  
       
    <br/>
+   
+   ---
       
    + tools.isNumber(Object)
    
@@ -467,6 +469,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否    
       
    <br/>
+   
+   ---
       
    + tools.isObject(Object)
    
@@ -481,6 +485,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否 
       
    <br/>
+   
+   ---
       
    + tools.isPlainObject(Object)
    
@@ -495,6 +501,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否   
       
    <br/>
+   
+   ---
       
    + tools.isRegExp(Object)
    
@@ -509,6 +517,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否  
       
    <br/>
+   
+   ---
       
    + tools.isString(Object)
    
@@ -523,6 +533,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否 
       
    <br/>
+   
+   ---
       
    + tools.isUndefined(Object)
    
@@ -537,6 +549,8 @@ Zr的API
       返回的是Boolean，true代表是，false代表否 
       
    <br/>
+   
+   ---
       
    + tools.keys(Object)
    
@@ -556,7 +570,9 @@ Zr的API
       
       `['index','others']`
       
-   <br/>   
+   <br/>  
+   
+   --- 
       
    + tools.values(Object)
    
@@ -577,6 +593,8 @@ Zr的API
       `['1927361','oks']`
       
    <br/>   
+   
+   ---
       
    + tools.later(Callback, Time, IsInterval)
    
@@ -621,6 +639,8 @@ Zr的API
       [参考用法](//github.com/guguaihaha/zr-engine/issues/10)  
             
    <br/>   
+   
+   ---
       
    + tools.size(Object)
    
@@ -643,6 +663,8 @@ Zr的API
      当然数组也是可以的
      
    <br/>     
+   
+   ---
      
    + tools.stringArray(Object)      
    
@@ -665,6 +687,8 @@ Zr的API
      
    <br/>        
    
+   ---
+   
   + tools.trim(StringObject)
   
      * StringObject
@@ -684,6 +708,8 @@ Zr的API
      `My first words`
      
      <br/>
+     
+     ---
      
   + tools.cookie(Key, Value, Time)
   
@@ -720,6 +746,8 @@ Zr的API
      这时候`pin`更改为`guguaihaha`同时只有`2天`有效期
      
   <br/>
+  
+  ---
      
   + tools.storage(Which, Key, Value)
   
@@ -752,6 +780,10 @@ Zr的API
      当然还有清除单独值缓存或者清除所有缓存，具体参考如下：
      
      [参考用法](//github.com/guguaihaha/zr-engine/issues/11)
+     
+     <br/>
+     
+     ---
      
   + tools.browser
   
@@ -819,6 +851,8 @@ Zr的API
      
   <br/>
   
+  ---
+  
    + tools.format(Fmt, Time)      
    
      * Fmt
@@ -848,6 +882,8 @@ Zr的API
      当然也支持`String`、`Number`的类型
      
    <br/>
+   
+   ---
    
    + tools.splitNumber(Number, Split, Qt)
    
@@ -879,6 +915,8 @@ Zr的API
   
    <br/>
    
+   ---
+   
    + tools.splitMoney(moneyNumber)
    
      自动转化为万，采用四舍五入      
@@ -900,6 +938,8 @@ Zr的API
      `98.73万`
   
    <br/>   
+   
+   ---
    
     
    + tools.transUrl(search)
