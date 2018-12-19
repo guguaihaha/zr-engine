@@ -701,47 +701,47 @@ Zr的API
      
       返回当前浏览器检测包，里面包含如下
        
-      - browser.versions.trident 
+      - @return.versions.trident 
         
         IE内核 是则返回true
         
-      - browser.versions.presto 
+      - @return.versions.presto 
       
         opera内核 是则返回true
       
-      - browser.versions.webKit
+      - @return.versions.webKit
        
         苹果、谷歌内核 是则返回true
         
-      - browser.versions.gecko
+      - @return.versions.gecko
        
         火狐内核 是则返回true
        
-      - browser.versions.mobile
+      - @return.versions.mobile
        
         是否为移动终端 是则返回true
         
-      - browser.versions.ios ios
+      - @return.versions.ios ios
       
         终端 是则返回true
         
-      - browser.versions.android android
+      - @return.versions.android android
       
         终端或者uc浏览器 是则返回true
         
-      - browser.versions.iPhone
+      - @return.versions.iPhone
        
         是否为iPhone或者QQHD浏览器 是则返回true
         
-      - browser.versions.iPad
+      - @return.versions.iPad
        
         是否iPad 是则返回true
         
-      - browser.versions.isSupportTouch
+      - @return.versions.isSupportTouch
        
         是否支持touch 是则返回true
         
-      - browser.versions.webApp
+      - @return.versions.webApp
        
         是否web应该程序，没有头部与底部 是则返回true
      
