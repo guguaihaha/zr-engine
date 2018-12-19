@@ -4,6 +4,20 @@ Zr的API
 > 快速导航
 
   + [Zr.use](#user-content-use) 
+  
+  + [Zr.add](#user-content-add)
+  
+  + [Zr.document](#user-content-document)
+  
+  + [Zr.window](#user-content-window)
+  
+  + [Zr.alias](#user-content-alias)
+  
+  + [Zr.config](#user-content-config)
+  
+  + [Zr.extend](#user-content-extend)
+  
+  + [Zr.tools](#user-content-tools)
 
 
 
@@ -687,6 +701,10 @@ Zr的API
      会获取到String类型的对象
      
      `"{a:1,b:2}"`
+     
+     当然还有清除单独值缓存或者清除所有缓存，具体参考如下：
+     
+     [参考用法](//github.com/guguaihaha/zr-engine/issues/11)
      
   + tools.browser
   
