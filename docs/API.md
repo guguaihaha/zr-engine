@@ -745,9 +745,112 @@ Zr的API
        
         是否web应该程序，没有头部与底部 是则返回true
      
+  <br/>
+  
+   + tools.format(Fmt, Time)      
+   
+     * Fmt
      
+     ***必填***，格式化的类型符号：
      
-         
+     `yyyy-MM-dd hh:mm:ss SSSS`
+     
+     当然还支持季度，季度的代表符号是：`q`
+     
+     * Time
+     
+     ***必填***，格式为`Date`、`String`、`Number`类型
+     
+     * 返回类型：
+     
+      `{String} @return`
+      
+     * 示例:
+     
+     `Zr.tools.format('yyyy-MM-dd', new Date())`
+     
+     结果是
+     
+     `2019-01-01`
+     
+     当然也支持`String`、`Number`的类型
+     
+   <br/>
+   
+   + tools.splitNumber(Number, Split, Qt)
+   
+     分割数字格式      
+   
+     * Number
+     
+     ***必填***，字符串或者数字类型
+     
+     * Split
+     
+     ***选填***，按照几位进行分割，默认是3
+     
+     * Qt
+     
+     ***选填***，以什么样的字符进行分割，默认是','
+     
+     * 返回类型：
+     
+      `{String} @return`
+      
+     * 示例:
+     
+     `Zr.tools.splitNumber('1827319837987922437')`
+     
+     结果是
+     
+     `1,827,319,837,987,922,437`
+  
+   <br/>
+   
+   + tools.splitMoney(moneyNumber)
+   
+     自动转化为万，采用四舍五入      
+   
+     * moneyNumber
+     
+     ***必填***，数字类型
+     
+     * 返回类型：
+     
+      `{Number} @return`
+      
+     * 示例:
+     
+     `Zr.tools.splitMoney('987263.45')`
+     
+     结果是
+     
+     `98.73万`
+  
+   <br/>   
+   
+    
+   + tools.transUrl(search)
+   
+     转换url的参数为js对象      
+   
+     * search
+     
+     ***必填***，传入的Url链接
+     
+     * 返回类型：
+     
+      `{Number} @return`
+      
+     * 示例:
+     
+     `Zr.tools.splitMoney('987263.45')`
+     
+     结果是
+     
+     `98.73万`
+  
+   <br/>         
       
            
  
