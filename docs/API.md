@@ -297,9 +297,7 @@ Zr的API
     
    <br/>
    
-   ```html
-   
-   ```
+---
           
    + tools.each(object, callback)
       
