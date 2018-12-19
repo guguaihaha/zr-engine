@@ -49,6 +49,9 @@ Zr的API
 <br/>
 <br/>
 
+```html
+
+```
 
 > Zr.add <span id="add">#</span>
 
@@ -77,6 +80,10 @@ Zr的API
  <br/>
  <br/>
  
+ ```html
+ 
+ ```
+ 
  > Zr.document <span id="document">#</span>
  
  - 语法：
@@ -87,6 +94,10 @@ Zr的API
     <br/>
     <br/>
     <br/>
+    
+    ```html
+    
+    ```
  
  > Zr.window <span id="window">#</span>
  
@@ -98,6 +109,10 @@ Zr的API
    <br/>
    <br/>
    <br/>
+   
+   ```html
+   
+   ```
    
  > Zr.alias <span id="alias">#</span> 
  
@@ -112,6 +127,10 @@ Zr的API
 <br/>
 <br/>
 <br/>
+
+```html
+
+```
 
 > Zr.config <span id="config">#</span>
 
@@ -200,6 +219,10 @@ Zr的API
  <br/>
  <br/>
  
+ ```html
+ 
+ ```
+ 
  
  > Zr.extend <span id="extend">#</span>
  
@@ -238,6 +261,10 @@ Zr的API
   <br/>
   <br/>
   <br/>
+  
+  ```html
+  
+  ```
  
   > Zr.tools <span id="tools">#</span>
   
@@ -269,6 +296,10 @@ Zr的API
    [参考用法](//github.com/guguaihaha/zr-engine/issues/8)
     
    <br/>
+   
+   ```html
+   
+   ```
           
    + tools.each(object, callback)
       
@@ -287,6 +318,10 @@ Zr的API
   
    <br/>
    
+   ```html
+   
+   ```
+   
    + tools.endWidth(path/url, suffix)
    
      * path/url
@@ -304,6 +339,10 @@ Zr的API
         返回true或者false
         
      <br/>
+     
+     ```html
+     
+     ```
      
    + tools.extname(path/url)
                 
@@ -325,6 +364,10 @@ Zr的API
        
    <br/>
    
+   ```html
+   
+   ```
+   
    + tools.isArray(Object)
    
      * Object
@@ -338,6 +381,10 @@ Zr的API
       返回的是Boolean，true代表是，false代表否    
       
    <br/>
+   
+   ```html
+   
+   ```
    
    + tools.isBoolean(Object)
    
