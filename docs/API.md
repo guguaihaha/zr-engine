@@ -19,7 +19,9 @@ Zr的API
   
   + [Zr.tools](#user-content-tools)
 
+```html
 
+``
 
 > Zr.use <span id="use">#</span>
 
