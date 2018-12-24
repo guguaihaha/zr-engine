@@ -296,23 +296,41 @@
         }
     }
     //第三个参数是否使用临时会话默认不使用
-    $.storage = function(key,value){
-        if(typeof(value) == "object"){
-            value = JSON.stringify(value);
+    $.storage = function(which,key,value,isClear){
+        var _w = false,
+            _key = key,
+            _value = value,
+            _isClear = false;
+
+            if(typeof(which) == "boolean"){
+                _w = which
+            }else{
+                _key = which;
+                _value = key;
+            }
+
+        if(typeof(_value) == "object"){
+            _value = JSON.stringify(_value);
         }
-        var arg = arguments[2],
-            local = arg?sessionStorage:localStorage;
-        if(key&&!value){
+        
+        if((_w == true && key == true) || (typeof(_w) == 'boolean' && !key && !value && !isClear)){
+            _isClear = true;
+        }
+
+        //
+
+        var local = _w ? sessionStorage : localStorage;
+        if(_key && !_value && typeof(_key) != "boolean"){
             //读取相关信息
-            return local.getItem(key);
-        }else if(key&&value&&typeof(value)!="boolean"){
+            return local.getItem(_key);
+        }else if(_key && _value && typeof(_value) != "boolean"){
             //存储信息
-            local.setItem(key,value);
-        }else if(key&&value&&typeof(value)=="boolean"){
-            local.removeItem(key);
+            return local.setItem(_key,_value);
+        }else if(_key && _value && typeof(_value) == "boolean"){
+            return local.removeItem(_key);
         }
-        if(arguments[3] === true){
-            local.clear();
+        if(_isClear === true){
+            return local.clear();
         }
     }
 

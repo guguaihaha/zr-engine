@@ -525,13 +525,14 @@ import $ from '../zr-tools'
             $.each(modNames,function(i,n){
                 mod = Utils.extModnames([n]);
                 if(repeat[mod]){
+                    modNames[i] = repeat[mod];
                     return;
                 }
                 mdname = config.module[mod];
                 if(mdname){
                     modNames[i] = mdname.version ? mdname.path.replace("@version",mdname.version) : mdname.path;
                 }
-                repeat[mod] = 1;
+                repeat[mod] = modNames[i];
             })
             return modNames;
         },

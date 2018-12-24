@@ -7,14 +7,14 @@ export default  {
     "moduleList":{},
     "module":{
         "zr":{
-            // "path":"./zr/cdn_index"
-            "path":"./zr/index"
+            "path":"./zr/cdn_index"
+            // "path":"./zr/index"
         },
         "dp":{
-            // "path":"./dp/cdn_index"
-            "path":"./dp/index"
+            "path":"./dp/cdn_index"
+            // "path":"./dp/index"
         }
     },
-    "language":"CN",
+    "language":"zh-CN",
     "requestVersion":""
 }

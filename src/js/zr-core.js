@@ -13,10 +13,11 @@ if(!window.__ZrGlobalStatus){
     Zr.global.document = Zr.document = document;
     Zr.global.window = Zr.window = window;
     Zr.global.baseConfig = Zr.baseConfig = config;
+
+
     Zr.global.config = Zr.config = function(options){
         Zr.global.baseConfig = Zr.baseConfig = tools.extend(true,Zr.global.baseConfig,options);
     };
-    
     Zr.global._config = Zr._config = function(options){
         Zr.global.baseConfig = Zr.baseConfig = tools.extend(true,options,Zr.global.baseConfig);
     }
@@ -32,6 +33,7 @@ if(!window.__ZrGlobalStatus){
     Zr.global.event = Zr.event = event;
     //
     Zr.global.readyQueen = Zr.readyQueen = [];
+
     Zr.global.ready = Zr.ready = function(fn){
         Zr.readyQueen.push(fn);
     }
