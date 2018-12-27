@@ -1,11 +1,9 @@
 /**
  * Created by zhangjinglin on 16/9/2.
  */
-import Zr from '../zr-nameSpace';
 import $ from '../zr-tools';
 import utils from './utils';
 import getFile from '../loadFile/zr-getFile'
-import config from '../zr-config'
     //
     function moduleLoader(runtime,waitingModules){
         var _self = this;
@@ -79,12 +77,8 @@ import config from '../zr-config'
                 modules = _self.calculate(normalizedModNames);
                 //开始遍历加载模块到页面
                 if(!$.isEmptyObject(modules)){
-                    _self.eachLoadModules(modules);
+                    _self.eachLoadModules(modules,runtime);
                 }
-
-            //
-
-            //
         },
         // calculate:function(modNames, cache, ret){
         //     var m,
@@ -177,8 +171,9 @@ import config from '../zr-config'
             }
             return status;
         },
-        eachLoadModules:function(normalizedModNames){
-            var cssArray = [],jsArray =[],allLength=0,index = 0,moduleUrl,type,m;
+        eachLoadModules:function(normalizedModNames,runtime){
+            var config = runtime.baseConfig;
+            var cssArray = [],jsArray =[],allLength=normalizedModNames.length,index = 0,moduleUrl,type,m;
             var _self = this;
             $.each(normalizedModNames,function(i,n){
                 //
@@ -202,7 +197,7 @@ import config from '../zr-config'
                     m += ".js";
                     jsArray.push(m);
                 }
-                allLength++;
+
             })
             //
             //

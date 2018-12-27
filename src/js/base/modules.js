@@ -1,7 +1,6 @@
 /**
  * Created by zhangjinglin on 16/9/2.
  */
-import Zr from '../zr-nameSpace';
 import $ from '../zr-tools';
 import utils from './utils';
 import moduleLoader from './moduleLoader'
@@ -10,71 +9,6 @@ import moduleLoader from './moduleLoader'
     var ModulesObject = {};
     //
     $.extend(ModulesObject,{
-        Modules:function(){
-            //沙箱模式
-            var args = Array.prototype.slice.call(arguments),
-                callback = args.pop(),
-                error,
-                sync,
-                loader,
-                waitingModules,
-                finalCallback,
-                tryCount= 0,
-                _self = this,
-                modules = (args[0] && typeof(args[0]) === "string")?args:args[0];
-
-            if(!(_self instanceof ModulesObject.Modules)){
-                return new ModulesObject.Modules(modules,callback);
-            }
-            //check list
-            if($.isObject(callback)){
-                error = callback.error;
-                sync = callback.sync;
-                callback = callback.success;
-            }
-            if(typeof(callback) !== "function"){
-                throw "Callback must be a function";
-            }
-            //将结果集返回到回到函数体内, 此函数只有在依赖载入完毕,模块功能生效时调用
-            finalCallback = function(){
-                callback.apply(Zr,utils.getModules(Zr,modules));
-            }
-            //根据模块名称进行修改 => 获取正确模块名称
-            modules = utils.extModnames(modules);
-            //
-            //
-            function loadReady(){
-                ++tryCount;
-                var start = +new Date(),
-                    ret;
-                // console.log("开始执行模块依赖加载");
-                ret = utils.checkModsLoadRecursively(modules,Zr);
-                Zr.log(tryCount + " check duration :" + (+(new Date()) - start)+"ms");
-                if(ret){
-                    // console.log("检测模块是否依赖");
-                    utils.attachModsRecursively(modules,Zr);
-                }else{
-                    // console.log("您有模块未注册,正在注册该模块");
-                    waitingModules.fn = loadReady();
-                    loader.use();
-                    finalCallback();
-                }
-            }
-            //(new)新建等待对象,将需要等待的模块名称添加到其中
-            waitingModules = ModulesObject.waitingModules(loadReady);
-            //(new)创建新loader对象,可以异步加载数据
-            loader = moduleLoader(Zr,waitingModules);
-            //
-
-            //模块加载
-            if(sync){
-                //是否执行同步任务,同步则立即执行
-                waitingModules.notifyAll();
-            }else{
-                //将任务塞入队列中等待
-            }
-            return Zr;
-        },
         ModulesFix:function(){
             //沙箱模式
             var args = Array.prototype.slice.call(arguments),
@@ -298,9 +232,5 @@ import moduleLoader from './moduleLoader'
 
     })
     //
-    ModulesObject.Modules.prototype = {
-
-
-    }
     //
 export default ModulesObject

@@ -45,6 +45,5 @@ if(!window.__ZrGlobalStatus){
         });
     },0)
 }
-
     //
 export default Zr

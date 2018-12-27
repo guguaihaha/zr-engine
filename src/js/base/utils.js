@@ -136,7 +136,6 @@ import $ from '../zr-tools'
                             // Utils.registerAliasExports(runtime,modAlias,modName);
                         }
                     } catch(err) {
-                        console.log(err);
                         throw "请检查您的"+modName+"模块名称异常！";
                     }
 
